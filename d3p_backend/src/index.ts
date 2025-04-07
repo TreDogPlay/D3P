@@ -13,7 +13,8 @@ import categoriaRoutes from "./routes/categoria.routes";
 config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = Number(process.env.PORT) || 5000;
+
 
 app.use(cors());
 app.use(express.json());
@@ -33,6 +34,6 @@ app.get('/', (req, res) => {
   res.send('API de Productos funcionando');
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
